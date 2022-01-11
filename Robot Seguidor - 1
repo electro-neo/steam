@@ -1,0 +1,64 @@
+function SeguidorDeLineaHastaRojo () {
+    while (!(sensors.color4.isColorDetected(ColorSensorColor.Red))) {
+        brick.showImage(images.informationForward)
+        if (sensors.color2.isColorDetected(ColorSensorColor.Black)) {
+            motors.largeBC.tank(32, 17)
+        } else {
+            motors.largeBC.tank(17, 32)
+        }
+    }
+    motors.largeBC.run(50, 0.4, MoveUnit.Rotations)
+    motors.stopAll()
+}
+function SDL_Distancia () {
+    motors.largeB.clearCounts()
+    while (motors.largeB.angle() < 3600) {
+        brick.showImage(images.informationForward)
+        if (sensors.color2.isColorDetected(ColorSensorColor.Black)) {
+            motors.largeBC.tank(32, 17)
+        } else {
+            motors.largeBC.tank(17, 32)
+        }
+    }
+}
+function SeguidorDeLineaHastaNegro () {
+    while (!(sensors.color4.isColorDetected(ColorSensorColor.Black))) {
+        brick.showImage(images.informationForward)
+        if (sensors.color2.isColorDetected(ColorSensorColor.Black)) {
+            motors.largeBC.tank(32, 17)
+        } else {
+            motors.largeBC.tank(17, 32)
+        }
+    }
+    motors.largeBC.run(50, 0.4, MoveUnit.Rotations)
+    motors.stopAll()
+}
+function GiraAlaIzquierda () {
+    motors.largeBC.tank(-32, 32, 0.65, MoveUnit.Rotations)
+}
+function SDL_Tiempo () {
+    control.timer1.reset()
+    while (control.timer1.seconds() < 16) {
+        brick.showImage(images.informationForward)
+        if (sensors.color2.isColorDetected(ColorSensorColor.Black)) {
+            motors.largeBC.tank(32, 17)
+        } else {
+            motors.largeBC.tank(17, 32)
+        }
+    }
+}
+function GiraCientoOchenta () {
+    motors.largeBC.tank(-32, 32, 1.3, MoveUnit.Rotations)
+}
+function SeguidorDeLineaHastaAmarillo () {
+    while (!(sensors.color4.isColorDetected(ColorSensorColor.Yellow))) {
+        brick.showImage(images.informationForward)
+        if (sensors.color2.isColorDetected(ColorSensorColor.Black)) {
+            motors.largeBC.tank(32, 17)
+        } else {
+            motors.largeBC.tank(17, 32)
+        }
+    }
+    motors.largeBC.run(50, 0.4, MoveUnit.Rotations)
+    motors.stopAll()
+}
